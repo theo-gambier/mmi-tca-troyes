@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Attribute\Route;
 
 class BuggyController extends AbstractController
 {
@@ -16,4 +18,11 @@ class BuggyController extends AbstractController
             'key2' => 5.4,
         ];
     }
+
+	#[Route('/buggy', name: 'app_buggy', methods: ['GET'])]
+	public function buggy (): JsonResponse {
+		$array = $this->getData();
+
+		return new JsonResponse($array);
+	}
 }
