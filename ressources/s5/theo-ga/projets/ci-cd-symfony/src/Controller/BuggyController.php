@@ -19,10 +19,11 @@ class BuggyController extends AbstractController
         ];
     }
 
-	#[Route('/buggy', name: 'app_buggy', methods: ['GET'])]
-	public function buggy (): JsonResponse {
-		$array = $this->getData();
+    #[Route('/buggy', name: 'app_buggy', methods: ['GET'])]
+    public function buggy(): JsonResponse
+    {
+        $array = $this->getData();
 
-		return new JsonResponse($array);
-	}
+        return new JsonResponse($array);
+    }
 }
